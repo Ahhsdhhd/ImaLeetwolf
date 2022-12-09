@@ -1,0 +1,26 @@
+
+
+
+
+
+<div class="overlay">
+<div class="main_div">
+  <div class="title">Account Details</div>
+
+  <form [formGroup]="loginForm" (submit)="login" >
+    <div class="input_box">
+      <input type="text" formControlName="username" placeholder="User Name" required>
+      <div class="icon"><i class="fas fa-user"></i></div>
+    </div>
+    <div class="input_box">
+      <input type="password" placeholder="Password" formControlName="password" required>
+      <div class="icon"><i class="fas fa-lock"></i></div>
+    </div>
+
+    <div class="input_box button">
+      <input type="submit" value="Login" (click)="login()">
+    </div>
+
+  </form>
+</div>
+</div>

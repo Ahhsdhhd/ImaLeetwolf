@@ -1,0 +1,116 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']" routerLinkActive="router-link-active"
+       >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3 >REPORT</h3>
+      </div>
+      <a class="icon" >
+        <img src="../../assets/images/ima logo.avif" alt="" width="50" height="50"  class="center">
+
+      </a>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+     <!---     buttons-->
+     <div class="col-12">
+
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1" aria-expanded="false">
+      ALL GC
+      </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li><a ngbDropdownItem [routerLink]="['/bygc']" routerLinkActive="router-link-active"> ALL GC</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/bybattalions']" routerLinkActive="router-link-active" >BY BATTALIONS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['']" routerLinkActive="router-link-active" >BY COUNTRY</a></li>
+          <li><a ngbDropdownItem [routerLink]="['']" routerLinkActive="router-link-active" >BY PREFIX</a></li>
+          <li><a ngbDropdownItem [routerLink]="['']" routerLinkActive="router-link-active" >BY STATUS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['']" routerLinkActive="router-link-active" >FOREINGNER</a></li>
+
+        </ul>
+      </div>
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1" aria-expanded="false">
+      EXPENDITURE REPORT
+      </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li><a ngbDropdownItem [routerLink]="['/reports']" routerLinkActive="router-link-active" >BY DATE</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/reports']" routerLinkActive="router-link-active" >BY MONTH</a></li>
+          <li><a ngbDropdownItem [routerLink]="['reports']" routerLinkActive="router-link-active" >BY BILL NO/DETAILS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/reports']" routerLinkActive="router-link-active" >BY AMOUNT</a></li>
+
+        </ul>
+      </div>
+      <button type="button" class="btn btn-light btn-lg m-3" [routerLink]="['/report-view']" routerLinkActive="active" >VIEW</button>
+
+    </div>
+
+
+    <div class="card">
+      <div class="card-heading">
+        <div class="text-center">
+         EXPENDITURE BY DATE
+        </div>
+      </div>
+      <div class="card-body">
+
+
+
+                <div class="mb-2 row">
+
+                <label  class="col-sm-3 col-form-label" for="gcType">REPORT TITLE</label>
+                <div class="col-sm-6 ">
+
+                <div class="row-sm-12">
+                  <input type="text" class="form-control" ngModle name="reportTitle">
+                </div>
+              </div>
+
+              </div>
+
+                <div class="mb-2 row">
+
+                <label  class="col-sm-3 col-form-label" for="gcType">DATE</label>
+                <div class="col-sm-6 ">
+
+                <div class="row-sm-12">
+                  <input type="text" class="form-control" ngModle name="date">
+                </div>
+              </div>
+
+              </div>
+
+
+
+              <div class="text-lg-center">
+
+                <button  type="submit" class="btn btn-primary m-md-2  btn-center btn-lg">OK</button>
+                <button type="reset" class="btn btn-primary m-md-2  btn-center btn-lg">CANCEL</button>
+
+
+
+
+              </div>
+
+
+
+
+
+      </div>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

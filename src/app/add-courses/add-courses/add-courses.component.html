@@ -1,0 +1,131 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" fixedInViewport>
+    <mat-toolbar class="mat-toolbar">Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>Courses</h3>
+      </div>
+      <a class="navbar-header">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="icon"
+        />
+      </a>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="card">
+      <div
+        class="container"
+        *ngFor="
+          let viewCourses of viewCourses
+            | paginate : { itemsPerPage: 2, currentPage: p }
+        "
+      >
+        <button
+          class="btn btn-lg btn-outline-light"
+          [routerLink]="['/gc']"
+          routerLinkActive="router-link-active"
+        >
+          {{ viewCourses.courseName }}<br /><br />
+          DATE OF COURSE COMMENCEMENT : {{ viewCourses.dateOfCourseCommencement
+          }}<br />
+          DATE OF COURSE PASSOUT : {{ viewCourses.dateOfCoursePassout }}
+        </button>
+        <br /> <br>
+      </div>
+      <div class="addcourse">
+        <button class="btn btn-lg btn-outline-light-1" (click)="open(content)">
+          ADD COURSE
+        </button>
+      </div>
+      <br /><br>
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-template ngf #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ADD COURSE</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addCourses">
+      <div class="mb-3">
+        <label for="courseName">COURSE NAME</label>
+        <div class="input-group">
+          <input type="text" formControlName="courseName" required />
+        </div>
+        <div
+          class="form-text text-danger"
+          *ngIf="courseName.errors?.['required'] && courseName.touched"
+        >
+          Required *
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="dateOfCourseCommencement"
+          >DATE OF COURSE COMMENCEMENT</label
+        >
+        <div class="input-group">
+          <input
+            type="date"
+            formControlName="dateOfCourseCommencement"
+            required
+          />
+        </div>
+        <div
+          class="form-text text-danger"
+          *ngIf="dateOfCourseCommencement.errors?.['required']&&dateOfCourseCommencement.touched"
+        >
+          Required*
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="dateOfCoursePassout">DATE OF COURSE PASSOUT</label>
+        <div class="input-group">
+          <input type="date" formControlName="dateOfCoursePassout" required />
+        </div>
+      </div>
+      <div
+        class="form-text text-danger"
+        *ngIf="dateOfCoursePassout.errors?.['required']&&dateOfCoursePassout.touched"
+      >
+        Required*
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="onSubmit()"
+      [disabled]="addCourses.invalid"
+    >
+      Add
+    </button>
+  </div>
+</ng-template>

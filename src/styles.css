@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:  #042026; }
+
+.mat-toolbar{
+  background-color: black;
+}
+.sidenav-container {
+  height: 100%;
+  background-color: #042026 !important;
+}
+.card{
+  background-color: #042026 !important;
+}
+.card-body{
+  background-color: #063842 !important;
+
+}
+button a:active{
+  box-shadow: 2px 2px 5px grey;
+}
+.form-group{
+  background-color: #063842 !important;
+
+}
+
+
+

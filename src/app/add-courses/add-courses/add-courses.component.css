@@ -1,0 +1,82 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.heading_nav {
+  color: black;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.btn-outline-light {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 2rem;
+  background-color: #0090da;
+}
+
+.btn-outline-light-1 {
+  font-style: normal;
+color: wheat;
+  background-color: #0090da;
+
+  font-size: 20px;
+
+  width: 35%;
+  margin-left: -2.6rem;
+  padding: 3rem;
+}
+
+.btn-outline-light:hover {
+  background-color: #0090da;
+}
+.btn-outline-light-1:hover {
+  background-color: #0090da;
+  color: black;
+}
+
+.icon {
+  margin-left: 32rem;
+}
+
+.addcourse {
+  margin-left: 10%;
+}
+
+.mat-toolbar {
+  background-color: white;
+}
+
+.card {
+  background-color: white !important;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.container {
+  background-color: white;
+}
+
+mat-toolbar {
+  text-transform: uppercase;
+
+  background-image: linear-gradient(-225deg,
+      #6d6e7076 50%,
+      #6d6e7076 50%,
+      #d72b2b 50%,
+      #d32b2b 50%);
+  animation: textclip 2s linear infinite;
+}

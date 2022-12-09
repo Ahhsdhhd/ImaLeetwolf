@@ -1,0 +1,245 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>GENTLEMAN CADETS</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="d-inline-block align-text-center"
+        />
+      </a>
+    </mat-toolbar>
+    <!---     buttons-->
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        [routerLink]="['/gc']"
+        routerLinkActive="active"
+      >
+        ADD NEW
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        [routerLink]="['/all']"
+        routerLinkActive="active"
+      >
+        VIEW
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        [routerLink]="['/foreginer']"
+        routerLinkActive="active"
+      >
+        FOREGINER
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        (click)="open(content)"
+      >
+        ADVANCED FILTER
+      </button>
+    </div>
+
+    <!-- model Here -->
+
+    <ng-template ngf #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">ADVANCE FILTER</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col">
+              <label>GC NO.</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="gcNumber"
+                placeholder=""
+              />
+            </div>
+            <div class="col">
+              <label>NAME</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="name"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>BATTALION</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="battalion"
+                placeholder=""
+              />
+            </div>
+            <div class="col">
+              <label>COMPANY</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="company"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>DATE OF JOINING</label>
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="dateOfJoining"
+                placeholder=""
+              />
+            </div>
+            <div class="col">
+              <label>COURSE</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="course"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>BANK ACCOUNT</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="bankAccount"
+                placeholder=""
+              />
+            </div>
+            <div class="col">
+              <label>COUNTRY</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="country"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>STATUS</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="status"
+                placeholder=""
+              />
+            </div>
+            <div class="col">
+              <label>REMARK</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="remark"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.dismiss('Cross click')"
+        >
+          SEARCH
+        </button>
+      </div>
+    </ng-template>
+
+    <!-- Add Content Here -->
+    <table class="greyGridTable">
+      <thead class="thead-light">
+        <tr class="col">
+          <th class="table-light" scope="col">PREFIX</th>
+          <th class="table-light" scope="col">GC. NO</th>
+          <th class="table-light" scope="col">NAME</th>
+          <th class="table-light" scope="col">BATTALION</th>
+          <th class="table-light" scope="col">COMPANY</th>
+          <th class="table-light" scope="col">DOJ</th>
+          <th class="table-light" scope="col">COURSE</th>
+          <th class="table-light" scope="col">BANK ACC NO</th>
+          <th class="table-light" scope="col">COUNTRY</th>
+          <th class="table-light" scope="col">STATUS</th>
+          <th class="table-light" scope="col">REMARK</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let Gc of Gc
+
+          |filter:name
+          |filter:gcNumber
+          |filter:company
+          |filter:course
+          |filter:battalion
+          |filter:country
+          |filter:bankAccount
+          |filter:status
+          |filter:dateOfJoining
+          |filter:name
+          |filter:remark
+
+
+          | paginate : { itemsPerPage: 8, currentPage: p }"
+        >
+          <td class="text_td">{{ Gc.gcType }}</td>
+          <td class="text_td">{{ Gc.gcNumber }}</td>
+          <td class="text_td">{{ Gc.name }}</td>
+          <td class="text_td">{{ Gc.battalion }}</td>
+          <td class="text_td">{{ Gc.company }}</td>
+          <td class="text_td">{{ Gc.dateOfJoining }}</td>
+          <td class="text_td">{{ Gc.course }}</td>
+          <td class="text_td">{{ Gc.bankAccount }}</td>
+          <td class="text_td">{{ Gc.country }}</td>
+          <td class="text_td">{{ Gc.status }}</td>
+          <td class="text_td">{{ Gc.remark }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </mat-sidenav-content>
+</mat-sidenav-container>

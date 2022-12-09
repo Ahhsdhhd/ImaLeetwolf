@@ -1,0 +1,282 @@
+<div fxFlex>
+  <mat-sidenav-container fxFill class="sidenav-container">
+    <mat-sidenav class="sidenav">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list> </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="dark">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          [routerLink]="['/menu']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div class="heading_nav">
+          <h3>BILLING</h3>
+        </div>
+        <a class="icon">
+          <img
+            src="../../assets/images/ima logo.avif"
+            alt=""
+            width="50"
+            height="50"
+            class="d-inline-block align-text-center"
+          />
+        </a>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <!---     buttons-->
+      <div class="row-5">
+        <button
+          type="button"
+          class="btn btn-light btn-lg m-4"
+          [routerLink]="['/billing']"
+          routerLinkActive="active"
+        >
+          EXPENDITURE FORM
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-lg m-4"
+          [routerLink]="['/expenditureAll']"
+          routerLinkActive="active"
+        >
+          ALL
+        </button>
+
+        <div ngbDropdown class="dropdown d-inline-block">
+          <button
+            ngbDropdownToggle
+            class="dropdown btn btn-light btn-lg m-4"
+            type="button"
+            id="dropdownMenuButton1"
+            aria-expanded="false"
+          >
+            COPY
+          </button>
+          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a
+                ngbDropdownItem
+                [routerLink]="['/copyExpenditure']"
+                routerLinkActive="active"
+                >COPY EXPENDITURE</a
+              >
+            </li>
+            <li>
+              <a
+                ngbDropdownItem
+                [routerLink]="['/copyReceipt']"
+                routerLinkActive="active"
+                >COPY RECEIPT</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- <button type="button" class="btn btn-light btn-lg m-4">
+          ADVANCED FILTER
+        </button> -->
+        <div ngbDropdown class="dropdown d-inline-block">
+          <button
+            ngbDropdownToggle
+            class="dropdown btn btn-light btn-lg m-4"
+            type="button"
+            id="dropdownMenuButton1"
+            aria-expanded="false"
+          >
+            DELETE
+          </button>
+          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
+            <li>
+              <a
+                ngbDropdownItem
+                [routerLink]="['/deleteExpenditure']"
+                routerLinkActive="active"
+                >DELETE EXPENDITURE</a
+              >
+            </li>
+            <li>
+              <a
+                ngbDropdownItem
+                [routerLink]="['/deleteReceipt']"
+                routerLinkActive="active"
+                >DELETE RECEIPT</a
+              >
+            </li>
+          </ul>
+        </div>
+        <button
+          type="button"
+          class="btn btn-light btn-lg m-4"
+          [routerLink]="['/receipt']"
+          routerLinkActive="active"
+        >
+          RECEIPT
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-lg m-4"
+          [routerLink]="['/receiptAll']"
+          routerLinkActive="active"
+        >
+          ALL
+        </button>
+      </div>
+
+      <div class="form-body">
+        <form [formGroup]="addExpenditureForm" novalidate class="form-data">
+          <div class="form">
+            <div class="text-center pb-3 pt-1 animate-charcter">
+              EXPENDITURE FORM
+            </div>
+
+            <div class="mb-2 row">
+              <label for="recordNo" class="col-sm-3 col-form-label"
+                >RECORD NO</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="recordNo"
+                  formControlName="recordNumber"
+                />
+              </div>
+            </div>
+
+            <div class="mb-2 row">
+              <label class="col-sm-3 col-form-label" for="gcType"
+                >G.C NO.</label
+              >
+              <div class="col-sm-6">
+                <select name="gcType" id="gcType" formControlName="gcType">
+                  <option value="A/">A/</option>
+                  <option value="D/">D/</option>
+                  <option value="T/">T/</option>
+                  <option value="TES/">TES/</option>
+                  <option value="SCO/">SCO/</option>
+                  <option value="U/">U/</option>
+                  <option value="N/">N/</option>
+                  <option value="SR/">SR/</option>
+                </select>
+
+
+                  <input
+                    type="text"
+                    class="gcNumberInput"
+                    ngModle
+                    name="gc No."
+                    formControlName="gcNumber"
+                  />
+
+              </div>
+            </div>
+            <div class="mb-2 row">
+              <label for="name" class="col-sm-3 col-form-label">NAME</label>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="name"
+                  formControlName="name"
+                />
+              </div>
+            </div>
+
+            <div class="mb-2 row">
+              <label for="battlion" class="col-sm-3 col-form-label"
+                >BATTALION</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="battlion"
+                  formControlName="battalion"
+                />
+              </div>
+            </div>
+
+            <div class="mb-2 row">
+              <label for="company" class="col-sm-3 col-form-label"
+                >COMPANY</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="company"
+                  formControlName="company"
+                />
+              </div>
+            </div>
+            <div class="mb-2 row">
+              <label for="date" class="col-sm-3 col-form-label">DATE</label>
+              <div class="col-sm-6">
+                <input
+                  type="date"
+                  class="form-control"
+                  ngModle
+                  name="date"
+                  formControlName="date"
+                />
+              </div>
+            </div>
+            <div class="mb-2 row">
+              <label for="course" class="col-sm-3 col-form-label"
+                >BILL NO/DETAILS</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="billNo"
+                  formControlName="billNoDetails"
+                />
+              </div>
+            </div>
+            <div class="mb-2 row">
+              <label for="account" class="col-sm-3 col-form-label"
+                >Amount</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  ngModle
+                  name="account"
+                  formControlName="ExpenditureAmount"
+                />
+              </div>
+            </div>
+
+            <div class="text-lg-center">
+              <button
+                (click)="onSubmit()"
+                type="submit"
+                class="btn btn-primary m-md-2 btn-center btn-lg"
+              >
+                SAVE
+              </button>
+              <button
+                type="reset"
+                class="btn btn-primary m-md-2 btn-center btn-lg"
+              >
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,279 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>BILLING</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="d-inline-block align-text-center"
+        />
+      </a>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!---     buttons-->
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/billing']"
+        routerLinkActive="active"
+      >
+        EXPENDITURE FORM
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/expenditureAll']"
+        routerLinkActive="active"
+      >
+        ALL
+      </button>
+
+      <div ngbDropdown class="dropdown d-inline-block">
+        <button
+          ngbDropdownToggle
+          class="dropdown btn btn-light btn-lg m-4"
+          type="button"
+          id="dropdownMenuButton1"
+          aria-expanded="false"
+        >
+          COPY
+        </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a
+              ngbDropdownItem
+              [routerLink]="['/copyExpenditure']"
+              routerLinkActive="active"
+              >COPY EXPENDITURE</a
+            >
+          </li>
+          <li>
+            <a
+              ngbDropdownItem
+              [routerLink]="['/copyReceipt']"
+              routerLinkActive="active"
+              >COPY RECEIPT</a
+            >
+          </li>
+        </ul>
+      </div>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        (click)="open(content)"
+      >
+        ADVANCED FILTER
+      </button>
+
+      <!--POPUP MODAL-->
+
+
+
+      <ng-template ngf #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">ADVANCE FILTER</h4>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col">
+                <label>GC NO.</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="gcNumber"
+                  placeholder=""
+                />
+              </div>
+              <div class="col">
+                <label>NAME</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="name"
+                  placeholder=""
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label>RECORD NUMBER</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="recordNo"
+                  placeholder=""
+                />
+              </div>
+              <div class="col">
+                <label>DATE</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  [(ngModel)]="date"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label>BILL NO / DETAILS</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="billNoDetails"
+                  placeholder=""
+                />
+              </div>
+              <div class="col">
+                <label>MODE / CHEQUE</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="modecheque"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label>AMOUNT</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="amount"
+                  placeholder=""
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            (click)="modal.dismiss('Cross click')"
+          >
+            SEARCH
+          </button>
+        </div>
+      </ng-template>
+
+      <!--end-->
+      <div ngbDropdown class="dropdown d-inline-block">
+        <button
+          ngbDropdownToggle
+          class="dropdown btn btn-light btn-lg m-4"
+          type="button"
+          id="dropdownMenuButton1"
+          aria-expanded="false"
+        >
+          DELETE
+        </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
+          <li>
+            <a
+              ngbDropdownItem
+              [routerLink]="['/deleteExpenditure']"
+              routerLinkActive="active"
+              >DELETE EXPENDITURE</a
+            >
+          </li>
+          <li>
+            <a
+              ngbDropdownItem
+              [routerLink]="['/deleteReceipt']"
+              routerLinkActive="active"
+              >DELETE RECEIPT</a
+            >
+          </li>
+        </ul>
+      </div>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/receipt']"
+        routerLinkActive="active"
+      >
+        RECEIPT
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/receiptAll']"
+        routerLinkActive="active"
+      >
+        ALL
+      </button>
+    </div>
+
+    <table class="greyGridTable">
+      <thead class="thead-light">
+        <tr>
+          <th class="table-light" scope="col">S.NO</th>
+          <th class="table-light" scope="col">RECORD NO</th>
+          <th class="table-light" scope="col">PREFIX</th>
+          <th class="table-light" scope="col">GC. NO</th>
+          <th class="table-light" scope="col">NAME</th>
+          <th class="table-light" scope="col">DATE</th>
+          <th class="table-light" scope="col">BILL NO / DETAILS</th>
+          <th class="table-light" scope="col">AMOUNT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let expenditure of expenditure
+              | filter : gcNumber
+              | filter : name
+              | filter : recordNo
+              | filter : date
+              | filter : amount
+              | filter : billNoDetails
+              | filter : gcType
+              | filter : modecheque
+              | paginate : { itemsPerPage: 10, currentPage: p };
+            let i = index
+          "
+        >
+          <td class="text_white">{{ i + 1 }}</td>
+          <td class="text_white">{{ expenditure.recordNumber }}</td>
+          <td class="text_white">{{ expenditure.gcType }}</td>
+          <td class="text_white">{{ expenditure.gcNumber }}</td>
+          <td class="text_white">{{ expenditure.name }}</td>
+          <td class="text_white">{{ expenditure.date }}</td>
+          <td class="text_white">{{ expenditure.billNoDetails }}</td>
+
+          <td class="text_white">{{ expenditure.ExpenditureAmount }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </mat-sidenav-content>
+</mat-sidenav-container>

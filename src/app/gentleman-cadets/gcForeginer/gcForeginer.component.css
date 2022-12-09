@@ -1,0 +1,156 @@
+.sidenav-container {
+  height: 100%;
+  background-color: #042026;
+}
+
+.sidenav {
+  width: 200px;
+}
+.mat-toolbar{
+  background-color: white;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.heading_nav{
+color: black;
+
+}
+.icon{
+  margin-left: 25.1rem;
+}
+mat-toolbar{
+  text-transform: uppercase;
+
+  background-image: linear-gradient(
+    -225deg,
+    #6d6e7076 50%,
+    #6d6e7076 50%,
+    #d72b2b 50%,
+    #d32b2b 50%
+  );  animation: textclip 2s linear infinite;
+
+
+}
+
+.text-center{
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px;
+}
+
+form{
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.col-sm-3 {
+  font-size: 20px;
+  font-weight: 500
+
+}
+.mb-1 {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500
+}
+
+.btn-primary{
+  width: 10%;
+
+}
+.card-body{
+  background-color: #072a33;
+  padding: 30px;
+  border-radius: 3%;
+}
+
+.form-group{
+  background-color: rgb(13, 57, 83);
+  border-radius: 3%;
+}
+.col-sm-3 {
+  color: white;
+  padding-left: 5%;
+}
+
+.text-center{
+  color: white;
+}
+
+
+
+.col-md-12{
+  color: wheat;
+}
+.text_td{
+  color: white;
+}
+
+.container{
+  float: left;
+}
+
+
+table.greyGridTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #FFFFFF;
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 0px solid #FFFFFF;
+  padding: 3px 2px;
+  border-radius: 25px;
+}
+table.greyGridTable tbody td {
+  font-size: 15px;
+  color: #000000;
+  border-radius: 25px;
+
+}
+table.greyGridTable tr:nth-child(even) {
+  background: #E5E5E5;
+
+}
+table.greyGridTable thead {
+  background: #EDEDED;
+  background: -moz-linear-gradient(top, #f1f1f1 0%, #eeeeee 66%, #EDEDED 100%);
+  background: -webkit-linear-gradient(top, #f1f1f1 0%, #eeeeee 66%, #EDEDED 100%);
+  background: linear-gradient(to bottom, #f1f1f1 0%, #eeeeee 66%, #EDEDED 100%);
+  border-bottom: 9px solid #042026;
+  border-radius: 10px;
+}
+table.greyGridTable thead th {
+
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 6px solid #042026;
+  border-radius: 25px;
+
+
+}
+table.greyGridTable thead th:first-child {
+
+  border-left: 1%;
+  border-right: 1%;
+}
+
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}

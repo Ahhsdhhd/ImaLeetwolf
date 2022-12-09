@@ -1,0 +1,105 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar class="mat-toolbar">Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>Courses</h3>
+      </div>
+      <a class="navbar-header">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="icon"
+        />
+      </a>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+
+    <div class="card1">
+      <div class="text-center">
+        <button
+          type="button"
+          class="btn btn-light btn-block btn-lg m-2"
+          [routerLink]="['/addcourse']"
+          routerLinkActive="router-link-active"
+        >
+          COURSES
+        </button>
+      </div>
+      <div class="text-center">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-lg"
+          [routerLink]="['/gc']"
+          routerLinkActive="router-link-active"
+        >
+          GENTLEMAN CADETS
+        </button>
+      </div>
+      <div class="text-lg-center">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-center btn-lg"
+          [routerLink]="['/billing']"
+          routerLinkActive="router-link-active"
+        >
+          BILLING
+        </button>
+      </div>
+      <div class="text-lg-center d-grid gap-2 d-md-block">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-center btn-lg"
+          [routerLink]="['/reports']"
+          routerLinkActive="router-link-active"
+        >
+          REPORTS
+        </button>
+      </div>
+      <div class="text-lg-center">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-center btn-lg"
+          [routerLink]="['/admin']"
+          routerLinkActive="router-link-active"
+        >
+          ADMINSTRATOR
+        </button>
+      </div>
+      <div class="text-lg-center">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-center btn-lg"
+          [routerLink]="['/cda']"
+          routerLinkActive="router-link-active"
+        >
+          CDA
+        </button>
+      </div>
+      <div class="text-lg-center">
+        <button
+          type="button"
+          class="btn btn-light m-md-2 btn-center btn-lg"
+          [routerLink]="['/bankreport']"
+          routerLinkActive="router-link-active"
+        >
+          BANK REPORT
+        </button>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

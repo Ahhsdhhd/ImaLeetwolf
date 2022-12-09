@@ -1,0 +1,98 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>CDA</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="center"
+        />
+      </a>
+    </mat-toolbar>
+    <!---     buttons-->
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        [routerLink]="['/cda']"
+        routerLinkActive="active"
+      >
+        CDA
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-3"
+        [routerLink]="['/cdaView']"
+        routerLinkActive="active"
+      >
+        VIEW
+      </button>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="search">
+          <input
+            type="text"
+            name="search"
+            [(ngModel)]="searchText"
+            placeholder="FIND...."
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Content Here -->
+    <table class="greyGridTable ">
+      <thead class="thead-light">
+        <tr class="col-md-12">
+          <th class="table-light" scope="col">S NO.</th>
+          <th class="table-light" scope="col">DATE</th>
+          <th class="table-light" scope="col">COURSE</th>
+          <th class="table-light" scope="col">AMOUNT</th>
+          <th class="table-light" scope="col">COUNTRY</th>
+          <th class="table-light" scope="col">PASSED BY CDA</th>
+          <th class="table-light" scope="col">REMARK</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let cda of cda
+              | filter : searchText
+              | paginate : { itemsPerPage: 5, currentPage: p };
+            let i = index
+          "
+        >
+          <td class="text_td">{{ i + 1 }}</td>
+
+          <td class="text_td">{{ cda.date }}</td>
+          <td class="text_td">{{ cda.course }}</td>
+          <td class="text_td">{{ cda.amount }}</td>
+          <td class="text_td">{{ cda.country }}</td>
+          <td class="text_td">{{ cda.passedByCda }}</td>
+          <td class="text_td">{{ cda.remark }}</td>
+        </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </tbody>
+    </table>
+  </mat-sidenav-content>
+</mat-sidenav-container>
